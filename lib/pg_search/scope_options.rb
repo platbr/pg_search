@@ -88,7 +88,7 @@ module PgSearch
         .select("#{rank} AS rank")
         .joins(subquery_join)
         .where(conditions)
-        .limit(nil)
+        .limit(limit)
         .offset(nil)
     end
 
@@ -154,6 +154,10 @@ module PgSearch
       scope.all.spawn.tap do |new_scope|
         new_scope.class_eval { include PgSearchRankTableAliasing }
       end
+    end
+
+    def limit
+      config.limit
     end
   end
 end

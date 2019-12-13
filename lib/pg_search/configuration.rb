@@ -74,6 +74,10 @@ module PgSearch
     def order_within_rank
       options[:order_within_rank]
     end
+    
+    def limit
+      options[:limit]
+    end
 
     private
 
@@ -84,7 +88,7 @@ module PgSearch
     end
 
     VALID_KEYS = %w[
-      against ranked_by ignoring using query associated_against order_within_rank
+      against ranked_by ignoring using query associated_against order_within_rank limit
     ].map(&:to_sym)
 
     VALID_VALUES = {
