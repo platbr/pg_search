@@ -88,6 +88,7 @@ module PgSearch
         .select("#{rank} AS rank")
         .joins(subquery_join)
         .where(conditions)
+        .where(subquery_conditions)
         .limit(limit)
         .offset(nil)
     end
@@ -158,6 +159,10 @@ module PgSearch
 
     def limit
       config.limit
+    end
+
+    def subquery_conditions
+      config.subquery_conditions
     end
   end
 end

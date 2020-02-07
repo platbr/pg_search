@@ -79,6 +79,10 @@ module PgSearch
       options[:limit]
     end
 
+    def subquery_conditions
+      options[:subquery_conditions]
+    end
+
     private
 
     attr_reader :options
@@ -88,7 +92,7 @@ module PgSearch
     end
 
     VALID_KEYS = %w[
-      against ranked_by ignoring using query associated_against order_within_rank limit
+      against ranked_by ignoring using query associated_against order_within_rank limit subquery_conditions
     ].map(&:to_sym)
 
     VALID_VALUES = {
