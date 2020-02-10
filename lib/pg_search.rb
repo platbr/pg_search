@@ -15,6 +15,8 @@ require "pg_search/scope_options"
 require "pg_search/version"
 
 module PgSearch
+  autoload :Document, "pg_search/document"
+
   def self.included(base)
     ActiveSupport::Deprecation.warn <<-MESSAGE.strip_heredoc
       Directly including `PgSearch` into an Active Record model is deprecated and will be removed in pg_search 3.0.
@@ -67,8 +69,4 @@ module PgSearch
   end
 end
 
-ActiveSupport.on_load(:active_record) do
-  require "pg_search/document"
-end
-
-require "pg_search/railtie" if defined?(Rails)
+require "pg_search/railtie" if defined?(Rails::Railtie)

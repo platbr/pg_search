@@ -1,5 +1,15 @@
 # pg_search changelog
 
+## 2.3.2
+
+* Autoload PgSearch::Document to prevent it from being loaded in projects that are not using multi-search.
+* Rebuilder should use update_pg_search_document if additional_attributes is set (David Ramalho)
+
+## 2.3.1
+
+* Drop support for Active Record < 5.2
+* Do not load railtie unless Rails::Railtie is defined, to avoid problem when loading alongside Action Mailer (Adam Schwartz)
+
 ## 2.3.0
 
 * Extract `PgSearch::Model` module
